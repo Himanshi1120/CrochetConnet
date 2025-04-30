@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Pattern</title>
+    <link rel="stylesheet" href="pattern.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Register Your Pattern</h1>
+        <form id="pattern-form">
+            <label for="pattern-name">Pattern Name:</label>
+            <input type="text" id="pattern-name" name="pattern-name" required>
+
+            <label for="designer-name">Designer Name:</label>
+            <input type="text" id="designer-name" name="designer-name" required>
+
+            <label for="pattern-image">Upload Pattern Image:</label>
+            <input type="file" id="pattern-image" name="pattern-image" accept="image/*" required>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="5" required></textarea>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("pattern-form").addEventListener("submit", function (e) {
+            e.preventDefault(); // Prevent actual submission
+            alert("Pattern submitted successfully!");
+            this.reset(); // Optional: clear the form after submission
+        });
+    </script>
+</body>
+</html>

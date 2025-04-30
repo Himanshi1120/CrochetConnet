@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brochure</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #fafafa;
+      margin: 0;
+      padding: 2rem;
+      color: #333;
+      display: flex;
+      justify-content: center;
+    }
+    .card {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      width: min(90vw, 650px);
+    }
+    h1 {
+      text-align: center;
+      color: #ff6f91;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Brochure</h1>
+    <div id="brochureContent"></div>
+    <a href="brochure.html">Save and Continue</a>
+  </div>
+
+  <script>
+    const brochureContent = document.getElementById("brochureContent");
+
+    // Get and display Trainer brochure
+    const trainerInfo = JSON.parse(localStorage.getItem("trainerInfo"));
+    const learnerInfo = JSON.parse(localStorage.getItem("learnerInfo"));
+
+    if (trainerInfo) {
+      brochureContent.innerHTML = `
+        <h2>Trainer Brochure</h2>
+        <p><strong>Name:</strong> ${trainerInfo.name}</p>
+        <p><strong>Email:</strong> ${trainerInfo.email}</p>
+        <p><strong>Crocheting:</strong> ${trainerInfo.years} year(s)</p>
+        <p><strong>Projects:</strong> ${trainerInfo.projects}</p>
+        <p><strong>Teaching Style:</strong> ${trainerInfo.style}</p>
+        <p><strong>Rate:</strong> ${trainerInfo.rate}</p>
+        <p><strong>Availability:</strong> ${trainerInfo.availability}</p>
+      `;
+    }
+
+    // Display Learner brochure
+    if (learnerInfo) {
+      brochureContent.innerHTML = `
+        <h2>Learner Brochure</h2>
+        <p><strong>Name:</strong> ${learnerInfo.name}</p>
+        <p><strong>Email:</strong> ${learnerInfo.email}</p>
+        <p><strong>Learning Goal:</strong> ${learnerInfo.goal}</p>
+        <p><strong>Learning Style:</strong> ${learnerInfo.style}</p>
+      `;
+    }
+  </script>
+</body>
+</html>

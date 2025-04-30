@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crochet Community</title>
+  <style>
+    :root {
+      --accent: #ff6f91;
+      --dark: #333;
+      --light: #fafafa;
+      --bg: #fdf4f5;
+      --gradient: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    }
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      margin: 0;
+      padding: 0;
+      color: var(--dark);
+    }
+    header {
+      background: var(--gradient);
+      padding: 1rem 2rem;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header .logo {
+      font-size: 2.5rem; /* Increased font size */
+      font-family: 'Cursive', sans-serif; /* Cursive font style */
+      color: #f5edef; /* Pink color to match the theme */
+      font-style: italic; /* Italicized for a softer look */
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav ul li {
+      display: inline;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: color 0.2s, transform 0.2s;
+    }
+    nav ul li a:hover {
+      color: var(--dark);
+      transform: scale(1.1);
+    }
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: #fff;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      margin: 3rem auto;
+      border-radius: 1rem;
+      max-width: 1000px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      background: var(--gradient);
+      opacity: 0.2;
+    }
+
+    .hero::before {
+      width: 250px;
+      height: 250px;
+      top: -60px;
+      left: -60px;
+    }
+
+    .hero::after {
+      width: 200px;
+      height: 200px;
+      bottom: -60px;
+      right: -60px;
+    }
+
+    .hero h1 {
+      font-size: 2rem; /* Adjusted font size */
+      margin-bottom: 2rem;
+      color: #ff6f91; /* Pink color for the text */
+      font-family: 'Cursive', sans-serif; /* Cursive font style */
+      font-style: italic; /* Italicized for a softer look */
+      text-align: center;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: var(--dark);
+    }
+
+    .hero-images {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    .hero-images img {
+      width: 200px; /* Same width for all images */
+      height: auto;
+      border-radius: 1rem;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s;
+    }
+
+    .hero-images img:hover {
+      transform: scale(1.1);
+    }
+
+    .hero button {
+      padding: 1rem 2rem;
+      border: none;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 0.5rem;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .hero button:hover {
+      opacity: 0.9;
+      transform: scale(1.05);
+    }
+
+    .hidden {
+      display: none;
+    }
+    .card {
+      margin: 2rem auto;
+      padding: 1.5rem; /* Reduced padding for less vertical spacing */
+      max-width: 700px;
+      min-height: 300px; /* Reduced minimum height */
+      background: #fff;
+      border-radius: 1rem;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+    .card h1 {
+      text-align: center;
+      margin-top: 0;
+      color: var(--dark);
+    }
+    .card label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: 600;
+      color: var(--dark);
+    }
+    .card select {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.4rem;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+    }
+    .card button {
+      margin-top: 1.5rem;
+      width: 100%;
+      padding: 0.8rem;
+      border: none;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 0.5rem;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .card button:hover {
+      opacity: 0.9;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="logo">Crochet Connect</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="pattern.html">Pattern</a></li>
+        <li><a href="feed.html">Feedback</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <h1>“Crochet is a journey of creativity and self-expression”</h1>
+    <p>Join now to explore your creativity, learn new skills, and connect with a vibrant community of crochet enthusiasts!</p>
+    <div class="hero-images">
+      <img src="https://img.freepik.com/free-photo/still-life-crochet-plushies_23-2151091243.jpg?uid=P3283762&ga=GA1.1.139723518.1703946554&semt=ais_hybrid&w=740" alt="Crochet Plushies">
+      <img src="https://img.freepik.com/free-photo/still-life-crochet-plushies_23-2151091247.jpg?uid=P3283762&ga=GA1.1.139723518.1703946554&semt=ais_hybrid&w=740" alt="Center Crochet Plushies">
+      <img src="https://img.freepik.com/free-photo/still-life-crochet-plushies_23-2151091195.jpg?uid=P3283762&ga=GA1.1.139723518.1703946554&semt=ais_hybrid&w=740" alt="Crochet Plushies">
+    </div>
+    <button id="learnMoreBtn" onclick="window.location.href='form.html';">Learn More</button>
+  </div>
+
+  <!-- Role Selection Card -->
+  <div class="card hidden" id="roleCard">
+    <h1>Join the Crochet Community</h1>
+    <form>
+      <label for="role">I want to join as:</label>
+      <select id="role" required>
+        <option value="">Select Role</option>
+        <option value="trainer">Trainer</option>
+        <option value="learner">Learner</option>
+      </select>
+      <button type="button" id="continueBtn">Continue</button>
+    </form>
+  </div>
+
+  <!-- Trainer Card -->
+  <div class="card hidden" id="trainerCard">
+    <h1>Trainer Details</h1>
+    <form>
+      <label for="trainerName">Name:</label>
+      <input type="text" id="trainerName" required>
+      <label for="trainerExperience">Experience:</label>
+      <input type="text" id="trainerExperience" required>
+      <button type="button" id="saveContinueBtn">Save & Continue Brochure</button>
+    </form>
+  </div>
+
+  <!-- Learner Card -->
+  <div class="card hidden" id="learnerCard">
+    <h1>Learner Details</h1>
+    <form>
+      <label for="learnerName">Name:</label>
+      <input type="text" id="learnerName" required>
+      <label for="learnerInterest">Interest:</label>
+      <input type="text" id="learnerInterest" required>
+      <button type="button" id="saveLearnerBtn">Save & Continue</button>
+    </form>
+  </div>
+
+  <!-- Brochure Card -->
+  <div class="card hidden" id="brochureCard">
+    <h1>Trainer Brochure</h1>
+    <p>Your details have been saved successfully!</p>
+    <button type="button" id="continueBrochureBtn">Continue to Dashboard</button>
+  </div>
+
+  <!-- Confirmation Card -->
+  <div class="card hidden" id="confirmationCard">
+    <h1>Double-Check Your Information</h1>
+    <p>Your details have been saved successfully!</p>
+    <button type="button" id="continueDashboardBtn">Continue to Dashboard</button>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const learnMoreBtn = document.getElementById('learnMoreBtn');
+      const roleCard = document.getElementById('roleCard');
+      const trainerCard = document.getElementById('trainerCard');
+      const learnerCard = document.getElementById('learnerCard');
+      const brochureCard = document.getElementById('brochureCard');
+      const confirmationCard = document.getElementById('confirmationCard');
+      const continueBtn = document.getElementById('continueBtn');
+      const saveContinueBtn = document.getElementById('saveContinueBtn');
+      const saveLearnerBtn = document.getElementById('saveLearnerBtn');
+      const continueBrochureBtn = document.getElementById('continueBrochureBtn');
+      const continueDashboardBtn = document.getElementById('continueDashboardBtn');
+      const roleSelect = document.getElementById('role');
+
+      const confirmationDetails = confirmationCard.querySelector('p');
+
+      // Show the role selection card and hide the hero section
+      learnMoreBtn.addEventListener('click', () => {
+        roleCard.classList.remove('hidden');
+        learnMoreBtn.parentElement.classList.add('hidden');
+      });
+
+      // Handle the "Continue" button click
+      continueBtn.addEventListener('click', () => {
+        const selectedRole = roleSelect.value;
+
+        if (!selectedRole) {
+          alert('Please select a role to continue.');
+          return;
+        }
+
+        roleCard.classList.add('hidden');
+        if (selectedRole === 'trainer') {
+          trainerCard.classList.remove('hidden');
+        } else if (selectedRole === 'learner') {
+          learnerCard.classList.remove('hidden');
+        }
+      });
+
+      // Handle "Save & Continue Brochure" button for Trainer
+      saveContinueBtn.addEventListener('click', () => {
+        const trainerName = document.getElementById('trainerName').value;
+        const trainerExperience = document.getElementById('trainerExperience').value;
+
+        if (!trainerName || !trainerExperience) {
+          alert('Please fill out all fields.');
+          return;
+        }
+
+        trainerCard.classList.add('hidden'); // Hide Trainer Card
+        confirmationDetails.textContent = `Name: ${trainerName}, Experience: ${trainerExperience}`;
+        confirmationCard.classList.remove('hidden'); // Show Confirmation Card
+      });
+
+      // Handle "Save & Continue" button for Learner
+      saveLearnerBtn.addEventListener('click', () => {
+        const learnerName = document.getElementById('learnerName').value;
+        const learnerInterest = document.getElementById('learnerInterest').value;
+
+        if (!learnerName || !learnerInterest) {
+          alert('Please fill out all fields.');
+          return;
+        }
+
+        learnerCard.classList.add('hidden'); // Hide Learner Card
+        confirmationDetails.textContent = `Name: ${learnerName}, Interest: ${learnerInterest}`;
+        confirmationCard.classList.remove('hidden'); // Show Confirmation Card
+      });
+
+      // Handle "Continue to Dashboard" button
+      continueDashboardBtn.addEventListener('click', () => {
+        confirmationCard.classList.add('hidden'); // Hide Confirmation Card
+        alert('Redirecting to Dashboard...');
+        const selectedRole = roleSelect.value;
+        if (selectedRole === 'trainer') {
+          window.location.href = 'trainer-dashboard.html'; // Redirect to Trainer Dashboard
+        } else if (selectedRole === 'learner') {
+          window.location.href = 'learner-dashboard.html'; // Redirect to Learner Dashboard
+        }
+      });
+    });
+  </script>
+</body>
+</html>

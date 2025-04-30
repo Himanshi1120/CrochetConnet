@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Crochet Community – Join Us</title>
+  <style>
+    :root {
+      --accent: #ff6f91;
+      --dark: #333;
+      --light: #fafafa;
+    }
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: url('https://img.freepik.com/premium-vector/seamless-knitting-motif-with-yarn-hearts-flowers_296715-984.jpg?ga=GA1.1.139723518.1703946554&semt=ais_hybrid&w=740') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 2rem;
+      display: grid;
+      place-items: center;
+      color: var(--dark);
+      height: 100vh;
+    }
+    .card {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      width: min(90vw, 650px);
+    }
+    h1 {
+      text-align: center;
+      margin-top: 0;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.4rem;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+    }
+    button {
+      margin-top: 1.5rem;
+      width: 100%;
+      padding: 0.8rem;
+      border: none;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 0.5rem;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+    .hidden {
+      display: none;
+    }
+    #learnerInfo p {
+      margin: 0.5rem 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Role Selection Card -->
+  <div class="card" id="roleCard">
+    <h1>Join the Crochet Community</h1>
+    <form id="roleForm">
+      <label for="role">I want to join as:</label>
+      <select id="role" required>
+        <option value="">Select Role</option>
+        <option value="trainer">Trainer</option>
+        <option value="learner">Learner</option>
+      </select>
+      <button type="button" id="continueBtn">Continue</button>
+    </form>
+  </div>
+
+  <!-- Trainer Form Card -->
+  <div class="card hidden" id="trainerCard">
+    <h1>Trainer Details</h1>
+    <form id="trainerForm">
+      <label for="trainerName">Full Name</label>
+      <input type="text" id="trainerName" required />
+      <label for="trainerUsername">Username</label>
+      <input type="text" id="trainerUsername" required />
+      <label for="trainerEmail">Email</label>
+      <input type="email" id="trainerEmail" required />
+      <label for="trainerPassword">Password</label>
+      <input type="password" id="trainerPassword" required />
+      <label for="experience">How long have you been crocheting?</label>
+      <input type="number" id="experience" />
+      <label for="specialty">What types of crochet projects do you teach?</label>
+      <input type="text" id="specialty" />
+      <label for="techniques">Do you specialize in any particular crochet techniques or styles?</label>
+      <input type="text" id="techniques" />
+      <label for="teachingStyle">What is your teaching style like?</label>
+      <textarea id="teachingStyle"></textarea>
+      <label for="examples">Do you have any examples of projects you've taught before?</label>
+      <textarea id="examples"></textarea>
+      <label for="experienceLevels">What is your experience teaching beginner, intermediate, and advanced levels?</label>
+      <textarea id="experienceLevels"></textarea>
+      <label for="certification">Are you certified to teach crochet? (If so, by whom?)</label>
+      <input type="text" id="certification" />
+      <label for="rate">What is your rate per hour or class?</label>
+      <input type="text" id="rate" />
+      <button type="button" id="saveContinueBtn">Save & Continue</button>
+    </form>
+  </div>
+
+  <!-- Learner Form Card -->
+  <div class="card hidden" id="learnerCard">
+    <h1>Learner Details</h1>
+    <form id="learnerForm">
+      <label for="learnerName">Full Name</label>
+      <input type="text" id="learnerName" required />
+      <label for="learnerUsername">Username</label>
+      <input type="text" id="learnerUsername" required />
+      <label for="learnerEmail">Email</label>
+      <input type="email" id="learnerEmail" required />
+      <label for="learnerPassword">Password</label>
+      <input type="password" id="learnerPassword" required />
+      <label for="goals">What are your crochet learning goals?</label>
+      <textarea id="goals" required></textarea>
+      <label for="preferredStyle">What is your preferred learning style?</label>
+      <input type="text" id="preferredStyle" required />
+      <button type="button" id="saveLearnerBtn">Save & Continue</button>
+    </form>
+  </div>
+
+  <!-- Confirmation Card -->
+  <div class="card hidden" id="confirmationCard">
+    <h1>Double-Check Your Information</h1>
+    <div id="learnerInfo"></div>
+    <button type="button" id="continueBtnDashboard">Continue to Dashboard</button>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const continueBtn = document.getElementById('continueBtn');
+      const roleSelect = document.getElementById('role');
+      const roleCard = document.getElementById('roleCard');
+      const trainerCard = document.getElementById('trainerCard');
+      const learnerCard = document.getElementById('learnerCard');
+      const saveTrainerBtn = document.getElementById('saveContinueBtn');
+      const saveLearnerBtn = document.getElementById('saveLearnerBtn');
+      const confirmationCard = document.getElementById('confirmationCard');
+      const learnerInfo = document.getElementById('learnerInfo');
+      const continueBtnDashboard = document.getElementById('continueBtnDashboard');
+
+      continueBtn.addEventListener('click', () => {
+        const role = roleSelect.value;
+        if (!role) {
+          alert('Please choose a role');
+          return;
+        }
+        roleCard.classList.add('hidden');
+        if (role === 'trainer') {
+          trainerCard.classList.remove('hidden');
+        } else if (role === 'learner') {
+          learnerCard.classList.remove('hidden');
+        }
+      });
+
+      if (saveTrainerBtn) {
+        saveTrainerBtn.addEventListener('click', () => {
+          const form = document.getElementById('trainerForm');
+          if (form.checkValidity()) {
+            saveTrainerBtn.innerText = 'Saved ✅';
+            saveTrainerBtn.disabled = true;
+            setTimeout(() => {
+              window.location.href = 'trainer-dashboard.html';
+            }, 1500);
+          } else {
+            alert('Please fill out all required fields');
+          }
+        });
+      }
+
+      if (saveLearnerBtn) {
+        saveLearnerBtn.addEventListener('click', () => {
+          const form = document.getElementById('learnerForm');
+          if (form.checkValidity()) {
+            const name = document.getElementById('learnerName').value;
+            const username = document.getElementById('learnerUsername').value;
+            const email = document.getElementById('learnerEmail').value;
+            const goals = document.getElementById('goals').value;
+            const style = document.getElementById('preferredStyle').value;
+
+            learnerCard.classList.add('hidden');
+            confirmationCard.classList.remove('hidden');
+            learnerInfo.innerHTML = `
+              <p><strong>Name:</strong> ${name}</p>
+              <p><strong>Username:</strong> ${username}</p>
+              <p><strong>Email:</strong> ${email}</p>
+              <p><strong>Goals:</strong> ${goals}</p>
+              <p><strong>Preferred Style:</strong> ${style}</p>
+            `;
+          } else {
+            alert('Please fill out all required fields');
+          }
+        });
+      }
+
+      continueBtnDashboard.addEventListener('click', () => {
+        window.location.href = 'learner-dashboard.html';
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  body {
+    background:#ca7589;
+    color: #fff;
+  }
+  
+  .container {
+    width: 85%;
+    margin: 50px auto;
+    max-width: 1200px;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    color: #fff;
+  }
+  
+  nav .btn {
+    padding: 10px 20px;
+    background-color: #5A67D8;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  nav .btn:hover {
+    background-color: #4349d8;
+  }
+  
+  .reviews-container {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .review-card {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .review-card h3 {
+    font-size: 1.4rem;
+    color: #333;
+  }
+  
+  .review-card p {
+    font-size: 1.1rem;
+    color: #000;
+  }
+  
+  .review-card .rating {
+    color: #FFD700;
+    font-size: 1.2rem;
+  }
+  
+
+
+  .btn {
+    text-decoration: none;
+    background-color: #FF6347;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 8px;
+    display: inline-block;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+  }
+  
+  .btn:hover {
+    background-color: #e5543f;
+  }
+  
+  /* RESPONSIVE: Adjustments for tablets */
+  @media only screen and (max-width: 768px) {
+    .btn, .back-link {
+      padding: 8px 16px;
+      font-size: 0.9rem;
+    }
+  }
+  
+  /* RESPONSIVE: Adjustments for mobile */
+  @media only screen and (max-width: 480px) {
+    .btn, .back-link {
+      padding: 6px 12px;
+      font-size: 0.8rem;
+      width: 100%; /* Make the button span the full width on mobile */
+      text-align: center;
+    }
+  }

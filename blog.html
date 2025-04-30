@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs</title>
+    <link rel="stylesheet" href="blog.css">
+
+    <!--font awesome cdn-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <!-- Navbar removed -->
+    </header>
+
+    <main>
+        <section id="main">
+            <div id="comments-container">            
+                <ul id="comments"></ul>
+            
+                <textarea id="commentInput" placeholder="Share your Experience"></textarea>
+                <label for="fileInput" style="color: aliceblue;cursor: pointer;">
+                    <span id="add"><i class="fa-solid fa-plus"></i></span>
+                </label>
+                <input type="file" id="fileInput" accept="image/*" multiple style="display: none;" />
+                <button id="addCommentBtn" onclick="addComment()">Add Comment</button>
+            </div>
+        </section>
+    </main>
+    
+    <script src="blog.js"></script>
+</body>
+</html>
